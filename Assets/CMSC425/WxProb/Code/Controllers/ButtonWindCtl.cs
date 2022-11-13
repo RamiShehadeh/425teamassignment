@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 namespace Wx
 {
@@ -8,11 +9,28 @@ namespace Wx
 
     public class ButtonWindCtl : MonoBehaviour
     {
-        public Wind wind;
+        //public Wind wind;
+        [SerializeField]
+        public TextMeshPro textMesh; 
+        private bool isSim; 
+    
+
+
+        void Start() {
+            isSim = true;
+        }
 
         private void OnMouseDown()
         {
-            wind.ChangeState();
+            //wind.ChangeState();
+            if (isSim) {
+                textMesh.text = "net";
+                isSim = false;
+            }
+            else {
+                textMesh.text = "sim";
+                isSim = true;
+            }
         }
     }
 }
