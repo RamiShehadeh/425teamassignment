@@ -23,14 +23,7 @@ namespace Wx
         private void OnMouseDown()
         {
             wind.ChangeState();
-            if (isSim) {
-                textMesh.text = "net";
-                isSim = false;
-            }
-            else {
-                textMesh.text = "sim";
-                isSim = true;
-            }
+            
         }
     }
 }
