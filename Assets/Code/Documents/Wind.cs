@@ -76,7 +76,7 @@ namespace Wx
                 if(windSpeed > windSpeedMax) { windSpeed = windSpeedMax; }
                 windDirection = windDirection % 360.0f;
 
-                if (ReportWind != null)
+                if (ReportWind != null && isSimulated)
                 {
                     ReportWind(windDirection, windSpeed);
                 }
@@ -122,7 +122,7 @@ namespace Wx
                     {
                         Wx response = JsonUtility.FromJson<Wx>(webRequest.downloadHandler.text);
                         
-                        if (ReportWind != null)
+                        if (ReportWind != null && !isSimulated)
                         {
                             ReportWind(response.properties.windDirection.value, response.properties.windSpeed.value);
                         }
