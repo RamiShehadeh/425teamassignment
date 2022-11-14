@@ -32,9 +32,22 @@ namespace Wx
 
         bool isSimulated = true;
 
+        void Start()
+        {
+            StartCoroutine(GetNetworkWind());
+            StartCoroutine(SimulateWind());
+        }
+
         public void ChangeState()
         {
             // Add code here to switch states and inform observers
+            isSimulated = !isSimulated;
+            
+            if (ReportState != null)
+            {
+                // When the list is not empty, call each callback.
+                ReportState();
+            }
         }
 
         IEnumerator SimulateWind()
@@ -81,6 +94,16 @@ namespace Wx
                 // request: once to pause until the request has been answered,
                 // and a second time to pause for ten seconds before sending
                 // another request.
+                using (UnityWebRequest webRequest = UnityWebRequest.Get("https://api.weather.gov/stations/"  + airportID + "/observations/latest"))
+                {
+                    yield return webRequest.SendWebRequest();
+
+                    if (webRequest.responseCode == 200)
+                    {
+                        Debug.Log(webRequest.downloadHandler.text);
+                        Debug.Log(JsonUtility.FromJson<Wx>(webRequest.downloadHandler.text));
+                    }
+                }
 
                 yield return wait;
             }
