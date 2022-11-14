@@ -14,11 +14,6 @@ namespace Wx
         public TextMeshPro textMesh; 
        
     
-
-
-        void Start() {
-        }
-
         private void OnMouseDown()
         {
             wind.ChangeState();
