@@ -9,7 +9,7 @@ namespace Wx
 
     public class ButtonWindCtl : MonoBehaviour
     {
-        //public Wind wind;
+        public Wind wind;
         [SerializeField]
         public TextMeshPro textMesh; 
         private bool isSim; 
@@ -22,7 +22,7 @@ namespace Wx
 
         private void OnMouseDown()
         {
-            //wind.ChangeState();
+            wind.ChangeState();
             if (isSim) {
                 textMesh.text = "net";
                 isSim = false;
