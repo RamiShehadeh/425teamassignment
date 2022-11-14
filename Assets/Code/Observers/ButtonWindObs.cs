@@ -18,7 +18,7 @@ namespace Wx
 
         private void ReportState(bool isSimulated)
         {
-            if (isSimulated) {
+            if (!isSimulated) {
                 tmp.text = "net";
             }
             else {
