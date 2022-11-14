@@ -45,8 +45,7 @@ namespace Wx
             
             if (ReportState != null)
             {
-                // When the list is not empty, call each callback.
-                ReportState();
+                ReportState(isSimulated);
             }
         }
 
@@ -100,8 +99,12 @@ namespace Wx
 
                     if (webRequest.responseCode == 200)
                     {
-                        Debug.Log(webRequest.downloadHandler.text);
-                        Debug.Log(JsonUtility.FromJson<Wx>(webRequest.downloadHandler.text));
+                        Wx response = JsonUtility.FromJson<Wx>(webRequest.downloadHandler.text);
+                        
+                        if (ReportWind != null)
+                        {
+                            ReportWind(response.properties.windDirection.value, response.properties.windSpeed.value);
+                        }
                     }
                 }
 
