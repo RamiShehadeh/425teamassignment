@@ -13,6 +13,7 @@ namespace Wx
         void Start()
         {
             // Add code to obtain reports of state changes.
+            wind.ReportState += ReportState;
         }
 
         private void ReportState(bool isSimulated)
