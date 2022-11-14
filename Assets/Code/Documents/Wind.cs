@@ -52,6 +52,9 @@ namespace Wx
         IEnumerator SimulateWind()
         {
             WaitForSeconds wait = new WaitForSeconds(0.5f);
+            //initial values for windSpeed and windDirection
+            windSpeed = (float) (r.NextDouble() * ((double) (windSpeedMax - windSpeedMin)) + windSpeedMin);
+            windDirection = (float) (r.NextDouble() * (double) windDirectionMax);
 
             while (true)
             {
@@ -59,6 +62,24 @@ namespace Wx
                 // and speeds every half-second to the proper observers.
                 // Be sure to use some randomness to change the direction
                 // and speed.
+                //increasing or decreasing?
+                int randInt = r.Next(); double factor = 0;
+                if(randInt % 2 == 0) { factor = 1.0f; }
+                else { factor = -1.0f; }
+
+                //change windSpeed and windDirection periodically
+                windSpeed += (float)(r.NextDouble() * ((double) deltaWindSpeed) * factor);
+                windDirection += (float)(r.NextDouble() * ((double) deltaWindDirection) * factor);
+
+                //fix values if needed, to fall in correct ranges
+                if(windSpeed < windSpeedMin) { windSpeed = windSpeedMin; }
+                if(windSpeed > windSpeedMax) { windSpeed = windSpeedMax; }
+                windDirection = windDirection % 360.0f;
+
+                if (ReportWind != null)
+                {
+                    ReportWind(windDirection, windSpeed);
+                }
 
                 yield return wait;
             }
