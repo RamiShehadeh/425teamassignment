@@ -12,12 +12,11 @@ namespace Wx
         public Wind wind;
         [SerializeField]
         public TextMeshPro textMesh; 
-        private bool isSim; 
+       
     
 
 
         void Start() {
-            isSim = true;
         }
 
         private void OnMouseDown()
