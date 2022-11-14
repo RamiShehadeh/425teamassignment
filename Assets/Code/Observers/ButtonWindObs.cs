@@ -18,6 +18,7 @@ namespace Wx
 
         private void ReportState(bool isSimulated)
         {
+            Debug.Log("isSimulated = " + isSimulated);
             if (isSimulated) {
                 tmp.text = "net";
                 isSimulated = false;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 234694443}
   - component: {fileID: 234694442}
   - component: {fileID: 234694446}
+  - component: {fileID: 234694447}
   m_Layer: 0
   m_Name: CubeBWI
   m_TagString: Untagged
@@ -237,6 +238,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wind: {fileID: 1407028599}
   textMesh: {fileID: 1006619814}
+--- !u!114 &234694447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234694441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87962f00a821cd641ae9f128ab01eb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 1407028599}
+  tmp: {fileID: 1006619814}
 --- !u!1 &343745976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1289,7 @@ GameObject:
   - component: {fileID: 889963995}
   - component: {fileID: 889963994}
   - component: {fileID: 889963998}
+  - component: {fileID: 889963999}
   m_Layer: 0
   m_Name: CubeIAD
   m_TagString: Untagged
@@ -1375,6 +1391,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wind: {fileID: 2065469833}
   textMesh: {fileID: 507841859}
+--- !u!114 &889963999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889963993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87962f00a821cd641ae9f128ab01eb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 2065469833}
+  tmp: {fileID: 507841859}
 --- !u!1 &1006619812
 GameObject:
   m_ObjectHideFlags: 0
