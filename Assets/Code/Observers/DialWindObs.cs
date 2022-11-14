@@ -15,7 +15,7 @@ namespace Wx
 
         void ReportWind(float direction, float speed)
         {
-            GameObject.transform.rotation = new Vector3(0,0,-direction); 
+            gameObject.transform.rotation = Quaternion.Euler(new Vector3(0,0,-direction)); 
         }
 
 
