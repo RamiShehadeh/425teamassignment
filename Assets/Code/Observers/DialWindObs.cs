@@ -15,9 +15,9 @@ namespace Wx
 
         void ReportWind(float direction, float speed)
         {
-            // Add code to manage reports of state changes.
+            GameObject.transform.rotation = new Vector3(0,0,-direction); 
         }
 
-        
+
     }
 }
