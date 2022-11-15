@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &122076543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5428846034137246952, guid: 95630dd371dfa2b47bc97b7591b644d8, type: 3}
+  m_PrefabInstance: {fileID: 731628199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &132295462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5428846034137246952, guid: 95630dd371dfa2b47bc97b7591b644d8, type: 3}
+  m_PrefabInstance: {fileID: 1119693570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &234694441
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +783,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4619833506824566354, guid: 95630dd371dfa2b47bc97b7591b644d8, type: 3}
   m_PrefabInstance: {fileID: 1119693570}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &600954559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132295462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99d5e62ab66f4c4db050bdc823a106b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 2065469833}
+  dir: {fileID: 343745978}
+  speed: {fileID: 726475304}
 --- !u!1 &649966732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,3 +2280,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4619833506824566354, guid: 95630dd371dfa2b47bc97b7591b644d8, type: 3}
   m_PrefabInstance: {fileID: 731628199}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2069241021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122076543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99d5e62ab66f4c4db050bdc823a106b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wind: {fileID: 1407028599}
+  dir: {fileID: 474287736}
+  speed: {fileID: 2000121448}
