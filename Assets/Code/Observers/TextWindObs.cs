@@ -7,7 +7,11 @@ namespace Wx
     {
         public Wind wind;
 
-        TextMeshPro tmp;
+        //TextMeshPro tmp;
+
+        public TextMeshPro dir;
+        public TextMeshPro speed;
+
 
         void Start()
         {
@@ -17,25 +21,32 @@ namespace Wx
 
         void ReportWind(float d, float s)
         {
+           
             // Add code to manage reports of state changes.
-            if (d > 157.5f && d <= 202.5f)
-                tmp.text = "S \n" + s;
-            else if (d > 202.5f && d <= 247.5f)
-                tmp.text = "SW \n" + s;
-            else if (d > 247.5f && d <= 292.5f)
-                tmp.text = "W \n" + s;
-            else if (d > 292.5f && d <= 337.5f)
-                tmp.text = "NW \n" + s;
-            else if (d > 337.5f && d <= 360f)
-                tmp.text = "N \n" + s;
-            else if (d >= 0f && d <= 22.5f)
-                tmp.text = "N \n" + s;
-            else if (d > 22.5f && d <= 67.5f)
-                tmp.text = "NE \n" + s;
-            else if (d > 67.5f && d <= 112.5f)
-                tmp.text = "E \n" + s;
-            else
-                tmp.text = "SE \n" + s;
+            int windterval = (int)(((d + 22.5f) / 45.0f) % 8.0f);
+
+            Debug.Log(windterval);
+
+            string directionName;
+            switch (windterval)
+            {
+                case 0: directionName = "N"; break;
+                case 1: directionName = "NE"; break;
+                case 2: directionName = "E"; break;
+                case 3: directionName = "SE"; break;
+                case 4: directionName = "S"; break;
+                case 5: directionName = "SW"; break;
+                case 6: directionName = "W"; break;
+                case 7: directionName = "NW"; break;
+                default: directionName = "N/A"; break;
+            }
+            dir.text = directionName;
+
+            speed.text = ((int)s).ToString();
+
+
+            speed.text = ((int) s).ToString();
+
 
         }
     }
