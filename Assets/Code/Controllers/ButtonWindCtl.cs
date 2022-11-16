@@ -11,15 +11,18 @@ namespace Wx
     {
         public Wind wind;
         [SerializeField]
-        public TextMeshPro textMesh; 
-       
+        public TextMeshPro textMesh;
+
+        void Start()
+        {
+            StartCoroutine(wind.SimulateWind());
+        }
     
         private void OnMouseDown()
         {
             wind.ChangeState();
-            StartCoroutine(wind.GetNetworkWind());
             StartCoroutine(wind.SimulateWind());
-            
+            StartCoroutine(wind.GetNetworkWind());
         }
     }
 }
