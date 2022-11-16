@@ -32,10 +32,30 @@ namespace Wx
 
         bool isSimulated = true;
 
+        IEnumerator simulateWind;
+        IEnumerator networkWind;
+
+        void Start()
+        {
+            simulateWind = SimulateWind();
+            networkWind = GetNetworkWind();
+        }
+
         public void ChangeState()
         {
             // Add code here to switch states and inform observers
             isSimulated = !isSimulated;
+
+            if (isSimulated)
+            {
+                StartCoroutine(simulateWind);
+                StopCoroutine(networkWind);
+            }
+            else
+            {
+                StartCoroutine(networkWind);
+                StopCoroutine(simulateWind);
+            }
             
             if (ReportState != null)
             {
@@ -43,7 +63,7 @@ namespace Wx
             }
         }
 
-        public IEnumerator SimulateWind()
+        IEnumerator SimulateWind()
         {
             WaitForSeconds wait = new WaitForSeconds(0.5f);
             //initial values for windSpeed and windDirection
@@ -70,7 +90,7 @@ namespace Wx
                 if(windSpeed > windSpeedMax) { windSpeed = windSpeedMax; }
                 windDirection = windDirection % 360.0f;
 
-                if (ReportWind != null && isSimulated)
+                if (ReportWind != null)
                 {
                     ReportWind(windDirection, windSpeed);
                 }
@@ -79,7 +99,7 @@ namespace Wx
             }
         }
 
-        public IEnumerator GetNetworkWind()
+        IEnumerator GetNetworkWind()
         {
             WaitForSeconds wait = new WaitForSeconds(10f);
 
@@ -116,7 +136,7 @@ namespace Wx
                     {
                         Wx response = JsonUtility.FromJson<Wx>(webRequest.downloadHandler.text);
                         
-                        if (ReportWind != null && !isSimulated)
+                        if (ReportWind != null)
                         {
                             ReportWind(response.properties.windDirection.value, response.properties.windSpeed.value);
                         }

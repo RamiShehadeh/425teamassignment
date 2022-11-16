@@ -12,20 +12,18 @@ namespace Wx
 
         void Start()
         {
-            //make sure we start out simulated
-            ReportState(true);
             wind.ReportState += ReportState;
         }
 
         private void ReportState(bool isSimulated)
         {
+            // Add code to manage reports of state changes.
             if (!isSimulated) {
                 tmp.text = "net";
             }
             else {
                 tmp.text = "sim";
             }
-            // Add code to manage reports of state changes.
         }
     }
 }

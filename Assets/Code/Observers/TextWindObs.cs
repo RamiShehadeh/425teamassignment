@@ -25,8 +25,6 @@ namespace Wx
             // Add code to manage reports of state changes.
             int windterval = (int)(((d + 22.5f) / 45.0f) % 8.0f);
 
-            Debug.Log(windterval);
-
             string directionName;
             switch (windterval)
             {
