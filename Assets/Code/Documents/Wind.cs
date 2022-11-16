@@ -32,12 +32,6 @@ namespace Wx
 
         bool isSimulated = true;
 
-        void Start()
-        {
-            StartCoroutine(GetNetworkWind());
-            StartCoroutine(SimulateWind());
-        }
-
         public void ChangeState()
         {
             // Add code here to switch states and inform observers
@@ -49,7 +43,7 @@ namespace Wx
             }
         }
 
-        IEnumerator SimulateWind()
+        public IEnumerator SimulateWind()
         {
             WaitForSeconds wait = new WaitForSeconds(0.5f);
             //initial values for windSpeed and windDirection
@@ -85,7 +79,7 @@ namespace Wx
             }
         }
 
-        IEnumerator GetNetworkWind()
+        public IEnumerator GetNetworkWind()
         {
             WaitForSeconds wait = new WaitForSeconds(10f);
 

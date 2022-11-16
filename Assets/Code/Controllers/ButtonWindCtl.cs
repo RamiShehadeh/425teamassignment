@@ -17,6 +17,8 @@ namespace Wx
         private void OnMouseDown()
         {
             wind.ChangeState();
+            StartCoroutine(wind.GetNetworkWind());
+            StartCoroutine(wind.SimulateWind());
             
         }
     }
